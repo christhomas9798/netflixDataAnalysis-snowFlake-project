@@ -37,7 +37,7 @@ blob_service_client = BlobServiceClient.from_connection_string(connection_string
 container_client = blob_service_client.get_container_client(adls_container_name)
 blob_client = container_client.get_blob_client(adls_blob_path)
 
-with open(local_csv_path, 'rb') as data:
+with open('./netflix_titles.csv', 'rb') as data:
     blob_client.upload_blob(data, overwrite=True)
 
 print(f"Dataset uploaded to ADLS Gen2 at {adls_container_name}/{adls_blob_path}")
